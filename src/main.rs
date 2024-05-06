@@ -14,7 +14,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let source = match args.source {
 		#[cfg(feature = "pulseaudio")]
 		ScopeSource::Pulse { device, server_buffer } => {
-			input::pulse::PulseAudioSimpleDataSource::new(device.as_deref(), &args.opts, server_buffer)?
+			scope::input::pulse::PulseAudioSimpleDataSource::new(device.as_deref(), &args.opts, server_buffer)?
 		},
 
 		#[cfg(feature = "file")]
